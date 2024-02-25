@@ -1,4 +1,44 @@
-ScrollViewExample:
+WidgetExample:
+
+<WidgetExample>:
+    cols: 3
+    ToggleButton:
+        text: "OFF"
+        on_state: root.on_toogle_button_state(self)
+        size_hint: None, 1
+        width: "100dp"
+    Button:
+        text: "Click!"
+        on_press: root.on_button_click()    #root is used here coz on_button_click() is of WidgetExample not of Button
+        disabled: not root.count_enabled
+    Label:
+        text: root.my_text
+        font_name: "fonts/DIGITALDREAMFAT.ttf"
+        font_size: "80dp"
+        color: 1,.5,1,1
+    Switch:
+        id: my_switch
+        on_active: root.on_switch_state(self)
+        size_hint: None, 1
+        width: "100dp"
+        active: True
+    Slider:
+        id: slider_value
+        min: 0
+        max: 100
+        value: 50
+        #on_value: root.on_slider_value(self)
+        orientation: "vertical"
+        disabled: not my_switch.active
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: str(int(slider_value.value))
+        ProgressBar:
+            max: 100
+            value: str(int(slider_value.value))
+
+
 
 <PageLayoutExample@PageLayout>:
     MainWidget:
