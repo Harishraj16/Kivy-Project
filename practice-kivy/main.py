@@ -6,8 +6,17 @@ from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.stacklayout import StackLayout
 from kivy.uix.widget import Widget
+
+
+class MenuScreen(Screen):
+    pass
+
+class LayoutScreen(Screen):
+    pass
+
 
 
 class WidgetExample(GridLayout):
@@ -83,9 +92,12 @@ class BoxLayoutExample(BoxLayout):
 class MainWidget(Widget):
     pass
 
-
 class TheLabApp(App):
-    pass
+
+    def build(self):
+        sm = ScreenManager()
+        sm.add_widget(MenuScreen(name='menu'))
+        sm.add_widget(LayoutScreen(name='layout'))
 
 
 TheLabApp().run()

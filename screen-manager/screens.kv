@@ -1,0 +1,46 @@
+<ButtonBar>:
+    orientation: 'horizontal'
+    size_hint_y: None
+    height: 50
+
+    Button:
+        text: 'Page 1'
+        on_press: root.change_screen_page1(self)
+    Button:
+        text: 'Page 2'
+        on_press: root.change_screen_page2(self)
+    Button:
+        text: 'Page 3'
+        on_press: root.change_screen_page3(self)
+
+<MainScreen>:
+    name: 'main'
+    BoxLayout:
+        orientation: 'vertical'
+        ButtonBar:
+        Label:
+            text: 'Main Screen'
+
+<Page1>:
+    name: 'page1'
+    BoxLayout:
+        orientation: 'vertical'
+        ButtonBar:
+        Label:
+            text: 'Page 1 Content'
+
+<Page2>:
+    name: 'page2'
+    BoxLayout:
+        orientation: 'vertical'
+        ButtonBar:
+        Label:
+            text: 'Page 2 Content'
+
+<Page3>:
+    name: 'page3'
+    BoxLayout:
+        orientation: 'vertical'
+        ButtonBar:
+        Label:
+            text: 'Page 3 Content'
