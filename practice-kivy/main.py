@@ -11,11 +11,11 @@ from kivy.uix.widget import Widget
 
 
 class WidgetExample(GridLayout):
-    my_text = StringProperty("1")
     count = 1
-    slider_txt = StringProperty("value")
+    my_text = StringProperty("1")
+    text_input_str = StringProperty("Harish")
+    #slider_txt = StringProperty("value")
     count_enabled = BooleanProperty(False)
-    switch_enabled = BooleanProperty(False)
 
     def on_button_click(self):
         if self.count_enabled:
@@ -39,6 +39,9 @@ class WidgetExample(GridLayout):
     #def on_slider_value(self, widget):
         #print("Slider: " + str(int(widget.value)))
         #self.slider_txt = str(int(widget.value))
+
+    def on_text_validate(self,widget):
+        self.text_input_str = widget.text
 
 
 class StackLayoutExample(StackLayout):

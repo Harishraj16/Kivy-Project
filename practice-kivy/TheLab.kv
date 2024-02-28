@@ -1,4 +1,16 @@
-WidgetExample:
+ImageExample:
+
+<ImageExample@GridLayout>
+    cols: 3
+    Image:
+        source: "images/grass.jpg"
+    Image:
+        source: "images/grass.jpg"
+        allow_stretch: True
+    Image:
+        source: "images/grass.jpg"
+        allow_stretch: True
+        keep_ratio: False        #keep_ratio can be used only along with allow_stretch
 
 <WidgetExample>:
     cols: 3
@@ -36,7 +48,19 @@ WidgetExample:
             text: str(int(slider_value.value))
         ProgressBar:
             max: 100
-            value: str(int(slider_value.value))
+            value: slider_value.value
+
+    TextInput:
+        id: my_text_input
+        size_hint: None, 1
+        width: "100dp"
+        text: root.text_input_str
+        multiline: False
+        on_text_validate: root.on_text_validate(self)
+    Label:
+        text: "Name: "+root.text_input_str
+
+
 
 
 
